@@ -1,5 +1,3 @@
-import Hello from "./components/Hello";
-
 function Food({ name, picture }) {
   return (
     <div>
@@ -39,14 +37,12 @@ const foodIlike = [
   },
 ];
 
+function renderFood(dish) {
+  return <Food name={dish.name} picture={dish.image} />;
+}
+
 function App() {
-  return (
-    <div className="App">
-      {foodIlike.map((food) => (
-        <Food name={food.name} picture={food.image} />
-      ))}
-    </div>
-  );
+  return <div className="App">{foodIlike.map(renderFood)}</div>;
 }
 
 export default App;
